@@ -1,0 +1,35 @@
+services:
+  php:
+    image: php:7.4-apache
+    container_name: php_container
+    ports:
+      - "8080:80"
+    volumes:
+      - ./sandbox:/var/www/html
+    networks:
+      - php_network
+  mysql:
+    image: mysql:5.7
+    container_name: mysql_container
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpassword
+      MYSQL_DATABASE: mydatabase
+    ports:
+      - "3306:3306"
+    networks:
+      - php_network
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: phpmyadmin_container
+    environment:
+      PMA_HOST: mysql
+      MYSQL_ROOT_PASSWORD: rootpassword
+    ports:
+      - "8081:80"
+    networks:
+      - php_network
+
+networks:
+  php_network:
+    driver: bridge
