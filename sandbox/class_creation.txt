@@ -1,0 +1,4 @@
+Par exemple pour créer une nouvelle instance de pont
+
+Il est tout à fait possible de ne pas déclarer les propriétés utilisées , toutefois cela n'est pas recommandé: le code perd en maintenabilité et en lisibilté 
+L'autre intér^t de dléclarer nos propriétés, c'est que nous allons pouvoir typer nos propriétés, c'est à dire garantir qu'elles contiennent bien la valeur attendue 
